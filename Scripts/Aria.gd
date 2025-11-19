@@ -52,13 +52,19 @@ func simple_move():
 		if is_on_floor():
 			change_state("Idle")
 
-	if Input.is_action_just_pressed("ui_accept") and can_jump == true and is_on_floor():
-		pass
+	if Input.is_action_just_pressed("ui_accept"):
+		if can_jump == true and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			print("jump")
+		elif can_double_jump == true and not is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			print("double jump")
 		
-	
-	if is_on_floor() and can_jump == false:
-		await get_tree().create_timer(0.2).timeout
-		can_jump = true
-	if is_on_floor() and can_double_jump == false:
-		await get_tree().create_timer(0.2).timeout
-		can_double_jump = true
+		
+	#
+	#if is_on_floor() and can_jump == false:
+		#await get_tree().create_timer(0.2).timeout
+		#can_jump = true
+	#if is_on_floor() and can_double_jump == false:
+		#await get_tree().create_timer(0.2).timeout
+		#can_double_jump = true
