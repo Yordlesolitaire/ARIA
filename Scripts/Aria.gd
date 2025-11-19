@@ -24,7 +24,8 @@ func _physics_process(delta: float) -> void:
 	dir = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	simple_move()
 	update_sprites()
-	$LineEdit.text = str(can_jump)
+	$LineEdit.text ="Can jump : " + str(can_jump)
+	$LineEdit3.text = "Can double jump : " + str(can_double_jump)
 	move_and_slide()
 
 
@@ -55,16 +56,19 @@ func simple_move():
 	if Input.is_action_just_pressed("ui_accept"):
 		if can_jump == true and is_on_floor():
 			velocity.y = JUMP_VELOCITY
+			await get_tree().create_timer(0.2).timeout
+			can_jump = false
 			print("jump")
 		elif can_double_jump == true and not is_on_floor():
 			velocity.y = JUMP_VELOCITY
+			can_double_jump = false
 			print("double jump")
 		
 		
 	#
-	#if is_on_floor() and can_jump == false:
-		#await get_tree().create_timer(0.2).timeout
-		#can_jump = true
-	#if is_on_floor() and can_double_jump == false:
-		#await get_tree().create_timer(0.2).timeout
-		#can_double_jump = true
+	if is_on_floor() and can_jump == false:
+		await get_tree().create_timer(0.2).timeout
+		can_jump = true
+	if is_on_floor() and can_double_jump == false:
+		await get_tree().create_timer(0.2).timeout
+		can_double_jump = true

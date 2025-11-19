@@ -304,6 +304,15 @@ offset_top = -35.0
 offset_right = 72.5625
 offset_bottom = -4.0
 scale = Vector2(0.5, 0.5)
+expand_to_text_length = true
+
+[node name="LineEdit3" type="LineEdit" parent="."]
+offset_left = 4.0
+offset_top = -55.0
+offset_right = 72.5625
+offset_bottom = -24.0
+scale = Vector2(0.5, 0.5)
+expand_to_text_length = true
 
 [node name="LineEdit2" type="LineEdit" parent="."]
 offset_left = -38.0
@@ -311,3 +320,4 @@ offset_top = -35.0
 offset_right = 30.5625
 offset_bottom = -4.0
 scale = Vector2(0.5, 0.5)
+expand_to_text_length = true
