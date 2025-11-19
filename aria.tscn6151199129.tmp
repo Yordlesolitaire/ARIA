@@ -1,0 +1,185 @@
+[gd_scene load_steps=22 format=3 uid="uid://bc7033oga40fa"]
+
+[ext_resource type="Texture2D" uid="uid://c0l3n1wiykbs1" path="res://ASSETS/aria/aria/Sprites/ARIA-IDLE-1.png" id="1_rdodm"]
+
+[sub_resource type="GDScript" id="GDScript_o3noc"]
+script/source = "extends CharacterBody2D
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdodm"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3noc"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4t7t"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swc02"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivjj"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu8i1"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cocf3"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ftsr"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo0rw"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(1024, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plxab"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(1152, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74856"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(1280, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qce7"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(1408, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsgbh"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(1536, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e63hd"]
+atlas = ExtResource("1_rdodm")
+region = Rect2(1600, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1m3mm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdodm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3noc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4t7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swc02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vivjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu8i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cocf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ftsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo0rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plxab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74856")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qce7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsgbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e63hd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smy11"]
+radius = 7.0
+height = 32.0
+
+[sub_resource type="GDScript" id="GDScript_rdodm"]
+script/source = "extends Node
+
+var current_state: State
+var states = {}
+
+func _ready():
+	for child in get_children():
+		if child is State:
+			states[child.name] = child
+			child.state_machine = self
+			child.player = get_parent()  # Player
+		change_state(\"Idle\")
+	print(states)
+	
+func change_state(new_state_name: String):
+	if current_state != null:
+		current_state.exit()
+	current_state = states[new_state_name]
+	current_state.enter()
+	
+func _process(delta):
+	if current_state:
+		current_state.update(delta)
+"
+
+[sub_resource type="GDScript" id="GDScript_j4t7t"]
+script/source = "extends State
+
+
+func enter():
+"
+
+[sub_resource type="GDScript" id="GDScript_swc02"]
+script/source = "extends State
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Aria" type="CharacterBody2D"]
+script = SubResource("GDScript_o3noc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1m3mm")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_smy11")
+
+[node name="Statemachine" type="Node" parent="."]
+script = SubResource("GDScript_rdodm")
+
+[node name="Idle" type="Node" parent="Statemachine"]
+script = SubResource("GDScript_j4t7t")
+metadata/_custom_type_script = "uid://ka5o4f8xrnjg"
+
+[node name="Run" type="Node" parent="Statemachine"]
+script = SubResource("GDScript_swc02")
+metadata/_custom_type_script = "uid://ka5o4f8xrnjg"

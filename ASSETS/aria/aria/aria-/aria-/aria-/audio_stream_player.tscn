@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://s4k8cpi6f4m2"]
+
+[ext_resource type="AudioStream" uid="uid://b1h66jh5s5qie" path="res://Morceau sans titre(1).mp3" id="1_2o6n7"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_2o6n7")
+autoplay = true

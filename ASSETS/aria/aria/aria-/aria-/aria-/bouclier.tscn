@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://mhdml4la0xgp"]
+
+[ext_resource type="Script" path="res://bouclier.gd" id="1_5rvd3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbuuw"]
+radius = 40.0499
+
+[node name="bouclier" type="CollisionShape2D"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_jbuuw")
+disabled = true
+one_way_collision = true
+one_way_collision_margin = 128.0
+script = ExtResource("1_5rvd3")

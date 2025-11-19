@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1h66jh5s5qie"
+path="res://.godot/imported/Morceau sans titre(1).mp3-23648ecc8174803a8eedce51ac470ea5.mp3str"
+
+[deps]
+
+source_file="res://Morceau sans titre(1).mp3"
+dest_files=["res://.godot/imported/Morceau sans titre(1).mp3-23648ecc8174803a8eedce51ac470ea5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

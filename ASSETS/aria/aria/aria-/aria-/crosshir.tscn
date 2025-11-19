@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8cw7rf6y52jd"]
+
+[ext_resource type="Texture2D" uid="uid://drwfo8l3owvc2" path="res://aim_spot.png" id="2_byfvi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wi77i"]
+radius = 8.0
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("2_byfvi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wi77i")

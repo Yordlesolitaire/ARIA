@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd5bp6f232nsc"]
+
+[ext_resource type="AudioStream" uid="uid://ryu4rslxmght" path="res://flash-league-of-legends-made-with-Voicemod.mp3" id="1_56e0q"]
+[ext_resource type="Script" path="res://audio_stream_player_2d.gd" id="2_cn4ti"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_56e0q")
+autoplay = true
+script = ExtResource("2_cn4ti")

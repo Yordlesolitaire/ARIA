@@ -1,0 +1,167 @@
+[gd_scene load_steps=10 format=3 uid="uid://bafodbtgbvsei"]
+
+[ext_resource type="Texture2D" uid="uid://belsho1eeaedj" path="res://icon.svg" id="1_scscu"]
+[ext_resource type="Script" path="res://area_2d.gd" id="1_vlku8"]
+[ext_resource type="PackedScene" uid="uid://bh3ebw7svn345" path="res://player.tscn" id="3_vk4cp"]
+[ext_resource type="PackedScene" uid="uid://b8ael57eckmrr" path="res://obstacle.tscn" id="4_k7las"]
+[ext_resource type="AudioStream" uid="uid://cuit1et16f7n6" path="res://Chill game music.mp3" id="6_0skmi"]
+[ext_resource type="PackedScene" uid="uid://s4k8cpi6f4m2" path="res://audio_stream_player.tscn" id="7_ke2dn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8wcb"]
+size = Vector2(56.5001, 971.631)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7j4mh"]
+radius = 23.0
+height = 2612.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxry2"]
+size = Vector2(3275.14, 47)
+
+[node name="Area2D" type="Area2D"]
+gravity_space_override = 1
+linear_damp_space_override = 1
+script = ExtResource("1_vlku8")
+
+[node name="player" parent="." instance=ExtResource("3_vk4cp")]
+top_level = true
+position = Vector2(343, 476)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("4_k7las")]
+position = Vector2(1681, 126)
+rotation = 0.785398
+mass = 0.001
+gravity_scale = 1.0
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="sol6" type="CharacterBody2D" parent="TileMap"]
+position = Vector2(183, 519)
+rotation = 1.22173
+scale = Vector2(0.896146, 1)
+disable_mode = 1
+platform_on_leave = 2
+safe_margin = 0.001
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/sol6"]
+scale = Vector2(7.57813, 0.359375)
+texture = ExtResource("1_scscu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/sol6"]
+position = Vector2(-0.500072, -5.25006)
+rotation = -1.5708
+scale = Vector2(1, 0.996468)
+shape = SubResource("RectangleShape2D_t8wcb")
+metadata/_edit_group_ = true
+
+[node name="sol4" type="CharacterBody2D" parent="TileMap"]
+position = Vector2(2262, 348)
+disable_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/sol4"]
+scale = Vector2(7.57813, 0.359375)
+texture = ExtResource("1_scscu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/sol4"]
+position = Vector2(3, -1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_7j4mh")
+metadata/_edit_group_ = true
+
+[node name="sol5" type="CharacterBody2D" parent="TileMap"]
+position = Vector2(753, -48)
+rotation = 1.5708
+scale = Vector2(0.896146, 1)
+disable_mode = 1
+platform_on_leave = 2
+safe_margin = 0.001
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/sol5"]
+scale = Vector2(7.57813, 0.359375)
+texture = ExtResource("1_scscu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/sol5"]
+position = Vector2(-0.500072, -5.25006)
+rotation = -1.5708
+scale = Vector2(1, 0.996468)
+shape = SubResource("RectangleShape2D_t8wcb")
+metadata/_edit_group_ = true
+
+[node name="sol8" type="CharacterBody2D" parent="TileMap"]
+position = Vector2(3133, -351)
+scale = Vector2(0.896146, 1)
+disable_mode = 1
+platform_on_leave = 2
+safe_margin = 0.001
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/sol8"]
+position = Vector2(-1177.47, 0)
+scale = Vector2(25.9761, 0.359375)
+texture = ExtResource("1_scscu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/sol8"]
+position = Vector2(-1203.49, -0.500031)
+shape = SubResource("RectangleShape2D_lxry2")
+
+[node name="sol3" type="CharacterBody2D" parent="TileMap"]
+position = Vector2(968, 810)
+rotation = 1.5708
+disable_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/sol3"]
+scale = Vector2(7.57813, 0.359375)
+texture = ExtResource("1_scscu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/sol3"]
+position = Vector2(-1, 0.00012207)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_t8wcb")
+metadata/_edit_group_ = true
+
+[node name="sol2" type="CharacterBody2D" parent="TileMap"]
+position = Vector2(1064, 596)
+disable_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/sol2"]
+scale = Vector2(7.57813, 0.359375)
+texture = ExtResource("1_scscu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/sol2"]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_7j4mh")
+metadata/_edit_group_ = true
+
+[node name="sol7" type="CharacterBody2D" parent="TileMap"]
+position = Vector2(3543, 52)
+rotation = 1.5708
+scale = Vector2(0.896146, 0.896146)
+disable_mode = 1
+platform_on_leave = 2
+safe_margin = 0.001
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/sol7"]
+scale = Vector2(7.57813, 0.359375)
+texture = ExtResource("1_scscu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/sol7"]
+position = Vector2(-0.500072, -5.25006)
+rotation = -1.5708
+scale = Vector2(1, 0.996468)
+shape = SubResource("RectangleShape2D_t8wcb")
+metadata/_edit_group_ = true
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("7_ke2dn")]
+stream = ExtResource("6_0skmi")

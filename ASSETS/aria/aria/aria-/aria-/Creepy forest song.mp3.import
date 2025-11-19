@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8xjdwngand3f"
+path="res://.godot/imported/Creepy forest song.mp3-0178bc12a001a31b2e1ba266d39bff18.mp3str"
+
+[deps]
+
+source_file="res://Creepy forest song.mp3"
+dest_files=["res://.godot/imported/Creepy forest song.mp3-0178bc12a001a31b2e1ba266d39bff18.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

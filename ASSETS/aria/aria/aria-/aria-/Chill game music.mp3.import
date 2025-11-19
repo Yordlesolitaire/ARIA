@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cuit1et16f7n6"
+path="res://.godot/imported/Chill game music.mp3-44a7b1f601e1f71a7f470a6851271f50.mp3str"
+
+[deps]
+
+source_file="res://Chill game music.mp3"
+dest_files=["res://.godot/imported/Chill game music.mp3-44a7b1f601e1f71a7f470a6851271f50.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

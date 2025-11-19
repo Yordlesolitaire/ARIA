@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://bafodbtgbvsei"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_k25va"]
+[ext_resource type="Texture2D" uid="uid://belsho1eeaedj" path="res://icon.svg" id="1_scscu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md5c3"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_su00d"]
+radius = 68.06
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c2jk"]
+size = Vector2(379.5, 126)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7j4mh"]
+radius = 26.0
+height = 1524.0
+
+[node name="Area2D" type="Area2D"]
+gravity_space_override = 1
+linear_damp_space_override = 1
+
+[node name="player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_k25va")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+texture = ExtResource("1_scscu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+shape = SubResource("RectangleShape2D_md5c3")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="player"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(490, 142)
+mass = 0.001
+inertia = 1000.0
+can_sleep = false
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+rotation = 3.14159
+texture = ExtResource("1_scscu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_su00d")
+metadata/_edit_group_ = true
+
+[node name="sol" type="RigidBody2D" parent="."]
+position = Vector2(56, 180)
+mass = 1000.0
+gravity_scale = 8.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="sol"]
+rotation = -3.14159
+scale = Vector2(2.95313, 1)
+texture = ExtResource("1_scscu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sol"]
+shape = SubResource("RectangleShape2D_2c2jk")
+metadata/_edit_group_ = true
+
+[node name="sol2" type="CharacterBody2D" parent="."]
+position = Vector2(556, 538)
+disable_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="sol2"]
+scale = Vector2(7.57813, 0.359375)
+texture = ExtResource("1_scscu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sol2"]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_7j4mh")
+metadata/_edit_group_ = true
