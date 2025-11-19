@@ -38,6 +38,7 @@ func change_state(name:String):
 		current_state.player = self
 		current_state.enter()
 func play_anim(name:String):
+	$Sprite.stop()
 	$Sprite.play(name)
 func update_sprites():
 	if dir.x > 0:
@@ -57,12 +58,16 @@ func simple_move():
 		if can_jump == true and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			await get_tree().create_timer(0.2).timeout
-			can_jump = false
+			
+			change_state("Jump")
 			print("jump")
+			can_jump = false
 		elif can_double_jump == true and not is_on_floor():
 			velocity.y = JUMP_VELOCITY
-			can_double_jump = false
+			
 			print("double jump")
+			change_state("Jump")
+			can_double_jump = false
 		
 		
 	#
