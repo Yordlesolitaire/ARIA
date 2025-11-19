@@ -24,11 +24,18 @@ func _physics_process(delta: float) -> void:
 	dir = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	simple_move()
 	update_sprites()
+	simple_cam()
 	$LineEdit.text ="Can jump : " + str(can_jump)
 	$LineEdit3.text = "Can double jump : " + str(can_double_jump)
+	$LineEdit4.text = "vel x : " + str(dir.x)
 	move_and_slide()
-
-
+func simple_cam():
+	if abs(dir.y) >= 0.9 and abs(dir.x) < 0.3:
+		$Camera2D.position_smoothing_enabled = true
+		$Camera2D.position.y = 50 * dir.y / abs(dir.y)
+	else:
+		$Camera2D.position.y = 0
+	#print($Camera2D.position)
 
 func change_state(name:String):
 	if states[name]:
@@ -38,7 +45,6 @@ func change_state(name:String):
 		current_state.player = self
 		current_state.enter()
 func play_anim(name:String):
-	$Sprite.stop()
 	$Sprite.play(name)
 func update_sprites():
 	if dir.x > 0:
@@ -47,6 +53,8 @@ func update_sprites():
 		$Sprite.flip_h = true
 
 func simple_move():
+	if abs(dir.x) < 0.3:
+		dir.x = 0
 	velocity.x = dir.x * SPEED
 	if dir.x and is_on_floor():
 		change_state("Move")
@@ -54,13 +62,13 @@ func simple_move():
 		if is_on_floor():
 			change_state("Idle")
 
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") or Input.is_joy_button_pressed(0,JOY_BUTTON_A):
+
 		if can_jump == true and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-			await get_tree().create_timer(0.2).timeout
-			
 			change_state("Jump")
 			print("jump")
+			await get_tree().create_timer(0.2).timeout
 			can_jump = false
 		elif can_double_jump == true and not is_on_floor():
 			velocity.y = JUMP_VELOCITY
@@ -68,9 +76,6 @@ func simple_move():
 			print("double jump")
 			change_state("Jump")
 			can_double_jump = false
-		
-		
-	#
 	if is_on_floor() and can_jump == false:
 		await get_tree().create_timer(0.2).timeout
 		can_jump = true

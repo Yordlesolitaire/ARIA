@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://o0jhbwf34soi"]
+[gd_scene load_steps=4 format=3 uid="uid://o0jhbwf34soi"]
 
+[ext_resource type="Texture2D" uid="uid://dnyb8omyd82v8" path="res://icon.svg" id="1_2dftf"]
 [ext_resource type="PackedScene" uid="uid://bc7033oga40fa" path="res://aria.tscn" id="1_c6gwx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cmany"]
@@ -11,5 +12,10 @@ position = Vector2(0, 600)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("WorldBoundaryShape2D_cmany")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, 23.500008)
+scale = Vector2(11.9140625, 0.38281256)
+texture = ExtResource("1_2dftf")
 
 [node name="Aria" parent="." instance=ExtResource("1_c6gwx")]
