@@ -1,6 +1,6 @@
 extends Node
 class_name State
-var player
+var player:Aria
 
 func enter():
 	pass

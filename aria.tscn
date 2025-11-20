@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://m4uronfvilv" path="res://Scripts/States/Jump.gd" id="8_plxab"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j83pe"]
-height = 34.0
+height = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e63hd"]
 atlas = ExtResource("2_swc02")
@@ -279,8 +279,7 @@ shape = SubResource("CapsuleShape2D_j83pe")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e63hd")
-animation = &"Idle"
-frame_progress = 0.7965105
+animation = &"Double_Jump"
 
 [node name="States" type="Node" parent="."]
 
